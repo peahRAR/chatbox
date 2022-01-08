@@ -1,12 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import './index.css';
-import Connexion from './components/Connexion';
 import reportWebVitals from './reportWebVitals';
+
+import {BrowserRouter, Route, Routes } from 'react-router-dom';
+
+import App from './App'
+import Connexion from './components/Connexion';
+import NotFound from './components/NotFound';
+
+const Root = () => (
+  <BrowserRouter>
+    <Routes>
+      <Route exact path='/' element={<Connexion/>} />
+      <Route path='/pseudo/:pseudo' element={<App/>} />
+      <Route element={<NotFound/>} />
+    </Routes>
+  </BrowserRouter>
+)
 
 ReactDOM.render(
   <React.StrictMode>
-    <Connexion />
+    <Root />
   </React.StrictMode>,
   document.getElementById('root')
 );
