@@ -9,7 +9,7 @@ class MessageEditor extends Component {
 
   // Ecrire un message 
   createMessage = () =>{
-    const {addMessage, pseudo } = this.props
+    const {addMessage} = this.props
     
     let timestamp = Date.now()
     let message = this.state.message
@@ -35,7 +35,7 @@ class MessageEditor extends Component {
 
   // Ecoute les changements du texte afin de capturer la saisie et de compter le nombre de caracteres
   handleChange = (event) => {
-    this.state.caractereCounter = event.target.value.length 
+    this.setState.caractereCounter = event.target.value.length 
     const message = event.target.value;
     this.setState({ message });
   };
@@ -45,7 +45,7 @@ class MessageEditor extends Component {
       <Fragment>
         <section>
           <form className="form" onSubmit={(e)=> this.handleSubmit(e)}>
-            <div className="flex justify-end">
+            <div className="flex justify-end pr-4">
               <div className="text-space relative w-full mr-4">
                 <textarea
                   value={this.state.message}
